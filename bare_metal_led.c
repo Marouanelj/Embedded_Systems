@@ -11,7 +11,8 @@ int main(void)
 	*p_Enclk |= 0x8;
 	//2-set PIN mode
 	uint32_t *p_mode=(uint32_t *)GPIOD_BASE;
-		*p_mode|=(1<<24);
+	    *p_mode&=~(0b11<<24);
+		*p_mode|=(0b01<<24);
 	//3-Data
 	uint32_t *p_dataset=(uint32_t *)Output_data_Adress;
 	*p_dataset |=(1<<12);
